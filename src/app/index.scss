@@ -1,0 +1,14 @@
+@import "./_styles/index.scss";
+
+.App {
+  max-height: 100vh;
+
+  &__main {
+    max-width: 2560px;
+    margin: 0 auto;
+  }
+
+  &__content {
+    position: relative;
+  }
+}
