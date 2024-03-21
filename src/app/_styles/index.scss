@@ -1,0 +1,11 @@
+@import 'reset';
+@import 'variables/index';
+
+body{
+  font-family: Poppins, sans-serif;
+  background: var(--background-primary);
+}
+
+* {
+  scroll-behavior: smooth;
+}
