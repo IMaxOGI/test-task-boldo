@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { HomePage } from '@/pagesLayer/home';
-import { routeLinks } from '@/shared/consts/routes';
+import { routeLinks } from '@/shared/const/routes';
 
 const MainPage: React.FC = () => {
   const router = useRouter();
