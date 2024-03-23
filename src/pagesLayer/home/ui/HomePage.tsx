@@ -1,5 +1,5 @@
 import React from 'react';
 import s from './HomePage.module.scss';
 export const HomePage: React.FC = () => {
-  return <div className={s.HomePage}></div>;
+  return <div className={s.HomePage}>HomePage</div>;
 };

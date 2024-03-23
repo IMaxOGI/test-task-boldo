@@ -1,0 +1,9 @@
+.Header {
+  height: var(--header-size);
+  padding: 0 100px;
+  margin-top: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
