@@ -5,17 +5,16 @@ import { routeLinks } from '@/shared/const/routes';
 import { Icon } from '@/shared/ui/Icon';
 import { Button } from '@/shared/ui/Button';
 import Image from 'next/image';
+import Ellipse from '../../../shared/assets/images/ellipse.svg';
 import { images } from '@/shared/const/images';
 
 export const Header: React.FC = () => {
   return (
     <div className={s.Header}>
-      <Image
-        src={images.ellipse}
-        alt="ellipse"
-        loading={'lazy'}
+      <Ellipse
         width={1300}
         height={1300}
+        className={s.Header__ellipse}
       />
       <div className={s['Header__up-section']}>
         <Link
@@ -66,6 +65,8 @@ export const Header: React.FC = () => {
           alt="hero graphics"
         />
       </div>
+
+      {/*/ Future slider */}
     </div>
   );
 };
