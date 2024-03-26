@@ -1,5 +1,8 @@
 :root{
+  --font-size-16: 16px;
   --font-size-20: 20px;
+  --font-size-43: 43px;
+  --font-size-48: 48px;
 
   --font-weight-400: 400;
   --font-weight-600: 600;
@@ -7,18 +10,12 @@
 
   --font-line-24: 24px;
   --font-line-32: 32px;
-
-  --letter-spacing-32: 0.32px;
-  --letter-spacing-40: 0.4px;
-  --letter-spacing-56: 0.56px;
-  --letter-spacing-64: 0.64px;
+  --font-line-72: 72px;
 
   --border-radius-30: 24px;
+  --border-radius-56: 56px;
 
   --box-shadow: 0px 0px 10px rgba(0 0 0 / 15%);
-
-  /* Sizes */
-  --header-size: 43px;
 
   /* Transitions */
   --hover-duration: 0.15s;
