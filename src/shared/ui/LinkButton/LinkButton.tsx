@@ -6,7 +6,7 @@ import Link, { LinkProps } from 'next/link';
 
 interface LinkButtonProps extends LinkProps {
   className?: string;
-  variant?: 'outlined-white' | 'outlined-blue' | 'filled-green' | 'filled-white';
+  variant?: 'outlined-white' | 'outlined-blue' | 'filled-green' | 'filled-white' | 'filled-blue';
   children: React.ReactNode;
 }
 

@@ -51,6 +51,7 @@
             color: var(--color-gray);
 
             &:hover{
+              transition: var(--hover-duration);
               opacity: 0.8;
             }
           }

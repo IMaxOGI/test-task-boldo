@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 interface ButtonPros extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  variant?: 'outlined-white' | 'outlined-blue' | 'filled-green' | 'filled-white';
+  variant?: 'outlined-white' | 'outlined-blue' | 'filled-green' | 'filled-white' | 'filled-blue';
   children: React.ReactNode;
 }
 
