@@ -7,6 +7,7 @@ import CheckIcon from '../../assets/icons/check.svg';
 import EyeIcon from '../../assets/icons/eye.svg';
 import SunIcon from '../../assets/icons/sun.svg';
 import FeatherIcon from '../../assets/icons/feather.svg';
+import ChevronIcon from '../../assets/icons/chevron-down.svg';
 
 interface IconProps {
   className?: string;
@@ -17,7 +18,7 @@ export const Icon: React.FC<IconProps> = ({ className, name }) => {
   if (name === IconName['logo']) {
     return <Logo className={className} />;
   }
-  if (name === IconName['arrow-right']) {
+  if (name === IconName['arrow']) {
     return <ArrowRightIcon className={className} />;
   }
   if (name === IconName['check']) {
@@ -31,5 +32,8 @@ export const Icon: React.FC<IconProps> = ({ className, name }) => {
   }
   if (name === IconName['feather']) {
     return <FeatherIcon className={className} />;
+  }
+  if (name === IconName['chevron']) {
+    return <ChevronIcon className={className} />;
   }
 };

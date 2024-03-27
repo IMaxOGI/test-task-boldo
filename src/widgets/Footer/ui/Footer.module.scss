@@ -46,6 +46,10 @@
         gap: 30px;
 
         li{
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
           a{
             font-size: var(--font-size-20);
             color: var(--color-gray);
@@ -55,6 +59,16 @@
               opacity: 0.8;
             }
           }
+        }
+
+        &-badge{
+          color: var(--color-dark-bluey);
+          font-size: var(--font-size-13);
+          font-weight: var(--font-weight-700);
+
+          background-color: var(--color-green);
+          border-radius: var(--border-radius-120);
+          padding: 10px;
         }
 
         li:first-child{

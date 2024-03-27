@@ -1,4 +1,6 @@
 :root{
+  --font-size-13: 13px;
+  --font-size-14: 14px;
   --font-size-16: 16px;
   --font-size-20: 20px;
   --font-size-24: 24px;
@@ -13,14 +15,18 @@
   --font-line-24: 24px;
   --font-line-28: 28px;
   --font-line-32: 32px;
+  --font-line-36: 36px;
   --font-line-56: 56px;
   --font-line-72: 72px;
 
   --border-radius-4: 4px;
+  --border-radius-12: 12px;
   --border-radius-30: 30px;
   --border-radius-56: 56px;
+  --border-radius-120: 120px;
 
   --box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.08);
+  --box-shadow-secondary: 0px 12px 32px 0px rgba(0, 0, 0, 0.12);
 
   /* Transitions */
   --hover-duration: 0.15s;

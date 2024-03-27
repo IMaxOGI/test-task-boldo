@@ -9,7 +9,9 @@ import { LinkButton } from '@/shared/ui/LinkButton';
 import cn from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { testimonials } from '@/shared/const/data';
+import { articles, testimonials } from '@/shared/const/data';
+import { Accordion } from '@/shared/ui/Accordion';
+import { Button } from '@/shared/ui/Button';
 export const HomePage: React.FC = () => {
   return (
     <div className={s.HomePage}>
@@ -21,39 +23,42 @@ export const HomePage: React.FC = () => {
             <Image
               src={images.image1}
               alt="cool feature"
+              className="img-fluid"
             />
             <div>
               <h3>Cool feature title</h3>
               <p>Learning curve network effects return on investment.</p>
             </div>
             <Link href={'#'}>
-              Explore page <Icon name={'arrow-right'} />
+              Explore page <Icon name={'arrow'} />
             </Link>
           </div>
           <div className={s['HomePage__services-list-item']}>
             <Image
               src={images.image2}
               alt="cool feature"
+              className="img-fluid"
             />
             <div>
               <h3>Cool feature title</h3>
               <p>Learning curve network effects return on investment.</p>
             </div>
             <Link href={'#'}>
-              Explore page <Icon name={'arrow-right'} />
+              Explore page <Icon name={'arrow'} />
             </Link>
           </div>
           <div className={s['HomePage__services-list-item']}>
             <Image
               src={images.image3}
               alt="cool feature"
+              className="img-fluid"
             />
             <div>
               <h3>Cool feature title</h3>
               <p>Learning curve network effects return on investment.</p>
             </div>
             <Link href={'#'}>
-              Explore page <Icon name={'arrow-right'} />
+              Explore page <Icon name={'arrow'} />
             </Link>
           </div>
         </div>
@@ -63,6 +68,7 @@ export const HomePage: React.FC = () => {
               src={images.image4}
               alt="connect customers"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="img-fluid"
             />
             <div>
               <h2>We connect our customers with the best, and help them keep up-and stay open.</h2>
@@ -101,6 +107,7 @@ export const HomePage: React.FC = () => {
               src={images.image5}
               alt="connect customers"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="img-fluid"
             />
             <div>
               <h2>We connect our customers with the best, and help them keep up-and stay open.</h2>
@@ -132,68 +139,131 @@ export const HomePage: React.FC = () => {
           <h2 className={s['HomePage__testimonials-header-title']}>
             An enterprise template to ramp up your company website
           </h2>
-          <div
-            className={cn(s['slider-arrow'], s['slider-arrow-left'])}
-            id="swiper-testimonials-arrow-left"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Icon name="arrow-right" />
-          </div>
-          <div
-            className={cn(s['slider-arrow'], s['slider-arrow-right'])}
-            id="swiper-testimonials-arrow-right"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Icon name="arrow-right" />
+          <div className={s['HomePage__testimonials-header-arrows']}>
+            <div
+              className={cn(
+                s['HomePage__testimonials-header-arrows-slider-arrow'],
+                s['HomePage__testimonials-header-arrows-slider-arrow-left'],
+              )}
+              id="swiperTestimonialsArrowLeft"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Icon name="arrow" />
+            </div>
+            <div
+              className={cn(
+                s['HomePage__testimonials-header-arrows-slider-arrow'],
+                s['HomePage__testimonials-header-arrows-slider-arrow-right'],
+              )}
+              id="swiperTestimonialsArrowRight"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Icon name="arrow" />
+            </div>
           </div>
         </div>
-        <div className={s['HomePage__testimonials-content']}>
-          <Swiper
-            modules={[Navigation]}
-            navigation={{
-              nextEl: '#swiper-testimonials-arrow-right',
-              prevEl: '#swiper-testimonials-arrow-left',
-            }}
-            className={cn(s['HomePage__slider'])}
-            initialSlide={0}
-            spaceBetween={30}
-            slidesPerView={3}
-            breakpoints={{
-              1200: {
-                slidesPerView: 3,
-              },
-              760: {
-                slidesPerView: 1.5,
-              },
-              0: {
-                slidesPerView: 1,
-              },
-            }}
-            freeMode={true}
-            grabCursor={true}
-            resistance={true}
-            resistanceRatio={0}
-            touchStartForcePreventDefault={true}
-          >
-            {testimonials.map((testimonial) => (
-              <SwiperSlide
-                key={testimonial.id}
-                className={s['HomePage__testimonials-content-item']}
-              >
-                <h4>{testimonial.content}</h4>
-                <div>
-                  <Image
-                    src={images.avatar}
-                    alt="avatar"
-                  />
-                  <div>
-                    <p>{testimonial.name}</p>
-                    <p>{testimonial.role}</p>
-                  </div>
+        <Swiper
+          modules={[Navigation]}
+          navigation={{
+            nextEl: '#swiperTestimonialsArrowRight',
+            prevEl: '#swiperTestimonialsArrowLeft',
+            disabledClass: s['HomePage__testimonials-header-arrows-slider-arrow-disabled'],
+          }}
+          className={cn(s['HomePage__testimonials-content'])}
+          initialSlide={0}
+          spaceBetween={30}
+          slidesPerView={3}
+          breakpoints={{
+            1200: {
+              slidesPerView: 3,
+            },
+            760: {
+              slidesPerView: 1.5,
+            },
+            0: {
+              slidesPerView: 1,
+            },
+          }}
+          freeMode={true}
+          grabCursor={true}
+          resistance={true}
+          resistanceRatio={0}
+          touchStartForcePreventDefault={true}
+        >
+          {testimonials.map((testimonial) => (
+            <SwiperSlide
+              key={testimonial.id}
+              className={s['HomePage__testimonials-content-item']}
+            >
+              <p className={s['HomePage__testimonials-content-item-main-text']}>{testimonial.content}</p>
+              <div className={s['HomePage__testimonials-content-item-footer']}>
+                <Image
+                  src={testimonial.img}
+                  alt="avatar"
+                />
+                <div className={s['HomePage__testimonials-content-item-footer-text']}>
+                  <p className={s['HomePage__testimonials-content-item-footer-text-name']}>{testimonial.name}</p>
+                  <p className={s['HomePage__testimonials-content-item-footer-text-role']}>{testimonial.role}</p>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      <div className={s['HomePage__office-info']}>
+        <div>
+          <Image
+            src={images.image6}
+            alt="office"
+            className={cn(s['HomePage__office-info-img'], 'img-fluid')}
+          />
+        </div>
+        <div className={s['HomePage__office-info-content']}>
+          <h2 className={s['HomePage__office-info-content-title']}>
+            We connect our customers with the best, and help them keep up-and stay open.
+          </h2>
+          <div className={s['HomePage__office-info-content-accordions']}>
+            <Accordion title="We connect our customers with the best?">
+              <p>Here is the answer to the first question. It might be a detailed explanation.</p>
+            </Accordion>
+            <Accordion title="We connect our customers with the best?">
+              <p>Here is the answer to the first question. It might be a detailed explanation.</p>
+            </Accordion>
+            <Accordion title="We connect our customers with the best?">
+              <p>Here is the answer to the first question. It might be a detailed explanation.</p>
+            </Accordion>
+          </div>
+        </div>
+      </div>
+
+      <div className={s['HomePage__our-blog']}>
+        <p className={s['HomePage__our-blog-title-gray']}>Our Blog</p>
+        <h2 className={s['HomePage__our-blog-title']}>Value proposition accelerator product management venture</h2>
+        <div className={s['HomePage__our-blog-content-items']}>
+          {articles.map((article) => (
+            <div className={s['HomePage__our-blog-content-items-item']}>
+              <Image
+                src={article.img}
+                alt="blog img"
+                className={cn(s['HomePage__our-blog-content-items-item-img'], 'img-fluid')}
+              />
+              <div className={s['HomePage__our-blog-content-items-item-header']}>
+                <h4 className={s['HomePage__our-blog-content-items-item-header-category']}>{article.category}</h4>
+                <p className={s['HomePage__our-blog-content-items-item-header-date']}>{article.date}</p>
+              </div>
+              <p className={s['HomePage__our-blog-content-items-item-content']}>{article.content}</p>
+              <div className={s['HomePage__our-blog-content-items-item-footer']}>
+                <Image
+                  src={article.avatar}
+                  alt="avatar"
+                />
+                <p className={s['HomePage__our-blog-content-items-item-footer-name']}>{article.name}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className={s['HomePage__our-blog-btn-wrapper']}>
+          <Button variant={'outlined-blue'}>Load more</Button>
         </div>
       </div>
     </div>

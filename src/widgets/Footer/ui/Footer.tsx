@@ -28,10 +28,10 @@ export const Footer: React.FC = () => {
               <Link href={routeLinks.home}>Home</Link>
             </li>
             <li>
-              <Link href={routeLinks.products}>About</Link>
+              <Link href={routeLinks.products}>Products</Link>
             </li>
             <li>
-              <Link href={routeLinks.services}>Contact</Link>
+              <Link href={routeLinks.services}>Services</Link>
             </li>
           </ul>
           <ul className={s['Footer__right-section-navigation-list']}>
@@ -40,22 +40,23 @@ export const Footer: React.FC = () => {
               <Link href={routeLinks.home}>Home</Link>
             </li>
             <li>
-              <Link href={routeLinks.products}>About</Link>
+              <Link href={routeLinks.careers}>Careers</Link>
+              <span className={s['Footer__right-section-navigation-list-badge']}>Hiring!</span>
             </li>
             <li>
-              <Link href={routeLinks.services}>Contact</Link>
+              <Link href={routeLinks.services}>Services</Link>
             </li>
           </ul>
           <ul className={s['Footer__right-section-navigation-list']}>
             <li>Resources</li>
             <li>
-              <Link href={routeLinks.home}>Home</Link>
+              <Link href={routeLinks.blog}>Blog</Link>
             </li>
             <li>
-              <Link href={routeLinks.products}>About</Link>
+              <Link href={routeLinks.products}>Products</Link>
             </li>
             <li>
-              <Link href={routeLinks.services}>Contact</Link>
+              <Link href={routeLinks.services}>Services</Link>
             </li>
           </ul>
         </nav>

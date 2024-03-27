@@ -63,6 +63,7 @@ export const Header: React.FC = () => {
         <Image
           src={images.heroGraphics}
           alt="hero graphics"
+          className="img-fluid"
         />
       </div>
 
