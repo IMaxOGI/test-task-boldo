@@ -8,9 +8,9 @@ import { routeLinks } from '@/shared/const/routes';
 const MainPage: React.FC = () => {
   const router = useRouter();
 
-  useEffect(() => {
-    router.replace(routeLinks.home);
-  }, [router]);
+  // useEffect(() => {
+  //   router.replace(routeLinks.home);
+  // }, [router]);
 
   return <HomePage />;
 };
