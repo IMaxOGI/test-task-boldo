@@ -8,6 +8,8 @@ import EyeIcon from '../../assets/icons/eye.svg';
 import SunIcon from '../../assets/icons/sun.svg';
 import FeatherIcon from '../../assets/icons/feather.svg';
 import ChevronIcon from '../../assets/icons/chevron-down.svg';
+import MenuIcon from '../../assets/icons/menu.svg';
+import CrossIcon from '../../assets/icons/cross.svg';
 
 interface IconProps {
   className?: string;
@@ -35,5 +37,11 @@ export const Icon: React.FC<IconProps> = ({ className, name }) => {
   }
   if (name === IconName['chevron']) {
     return <ChevronIcon className={className} />;
+  }
+  if (name === IconName['menu']) {
+    return <MenuIcon className={className} />;
+  }
+  if (name === IconName['cross']) {
+    return <CrossIcon className={className} />;
   }
 };

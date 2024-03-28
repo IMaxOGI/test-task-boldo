@@ -1,17 +1,9 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import React from 'react';
 import { HomePage } from '@/pagesLayer/home';
-import { routeLinks } from '@/shared/const/routes';
 
 const MainPage: React.FC = () => {
-  const router = useRouter();
-
-  // useEffect(() => {
-  //   router.replace(routeLinks.home);
-  // }, [router]);
-
   return <HomePage />;
 };
 

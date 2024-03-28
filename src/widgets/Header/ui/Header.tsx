@@ -12,14 +12,35 @@ import { images } from '@/shared/const/images';
 import { Autoplay } from 'swiper/modules';
 import { logos } from '@/shared/const/data';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import cn from 'classnames';
 
 export const Header: React.FC = () => {
   const [isSwiperReady, setIsSwiperReady] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    if (!isMenuOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+  };
 
   useEffect(() => {
     if (logos.length > 0) {
       setIsSwiperReady(true);
     }
+  }, []);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
   }, []);
 
   return (
@@ -39,9 +60,15 @@ export const Header: React.FC = () => {
 
         <nav className={s['Header__up-section-navigation']}>
           <ul className={s['Header__up-section-navigation-list']}>
-            <li className={s['Header__up-section-navigation-list-item']}>Product</li>
-            <li className={s['Header__up-section-navigation-list-item']}>Services</li>
-            <li className={s['Header__up-section-navigation-list-item']}>About</li>
+            <li className={s['Header__up-section-navigation-list-item']}>
+              <Link href={routeLinks.products}>Product</Link>
+            </li>
+            <li className={s['Header__up-section-navigation-list-item']}>
+              <Link href={routeLinks.services}>Services</Link>
+            </li>
+            <li className={s['Header__up-section-navigation-list-item']}>
+              <Link href={routeLinks.about}>About</Link>
+            </li>
           </ul>
           <Button
             className={s['Header__up-section-navigation-list-item-button']}
@@ -50,6 +77,47 @@ export const Header: React.FC = () => {
             Log in
           </Button>
         </nav>
+
+        <div className={cn(s['Header__up-section-navigation-mobile'], isMenuOpen ? s['is-open'] : '')}>
+          {isMenuOpen && (
+            <div
+              onClick={toggleMenu}
+              className={s['Header__up-section-navigation-mobile-cross']}
+            >
+              <Icon name={'cross'} />
+            </div>
+          )}
+
+          <ul className={s['Header__up-section-navigation-mobile-list']}>
+            <li className={s['Header__up-section-navigation-mobile-list-item']}>
+              <Link href={routeLinks.products}>
+                Product <Icon name={'chevron'} />
+              </Link>
+            </li>
+            <li className={s['Header__up-section-navigation-mobile-list-item']}>
+              <Link href={routeLinks.services}>
+                Services <Icon name={'chevron'} />
+              </Link>
+            </li>
+            <li className={s['Header__up-section-navigation-mobile-list-item']}>
+              <Link href={routeLinks.about}>
+                About <Icon name={'chevron'} />
+              </Link>
+            </li>
+          </ul>
+          <Button
+            className={s['Header__up-section-navigation-mobile-list-item-button']}
+            variant={'filled-white'}
+          >
+            Log in
+          </Button>
+        </div>
+        <button
+          className={s['Header__up-section-menu-toggle']}
+          onClick={toggleMenu}
+        >
+          <Icon name={'menu'} />
+        </button>
       </div>
       <div className={s['Header__down-section']}>
         <div>
@@ -91,6 +159,14 @@ export const Header: React.FC = () => {
           autoplay={{
             delay: 0,
             disableOnInteraction: false,
+          }}
+          breakpoints={{
+            760: {
+              spaceBetween: 80,
+            },
+            0: {
+              spaceBetween: 30,
+            },
           }}
           loop={true}
           speed={2500}

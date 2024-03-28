@@ -31,6 +31,12 @@
     font-weight: var(--font-weight-400);
     color: var(--color-black);
     line-height: var(--font-line-72);
+
+
+    @include mobile{
+      font-size: var(--font-size-24);
+      line-height: var(--font-line-36);
+    }
   }
 
   &__services-list{
@@ -40,6 +46,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include mobile{
+      margin: 25px auto 0;
+      flex-direction: column;
+    }
 
     &-item{
       max-width: 300px;
@@ -134,7 +145,9 @@
         margin-bottom: 40px;
 
         @include mobile{
-         max-width: 100%;
+          font-size: var(--font-size-24);
+          line-height: var(--font-line-36);
+          max-width: 100%;
         }
       }
 
@@ -234,6 +247,11 @@
         font-weight: var(--font-weight-400);
         line-height: var(--font-line-72);
         color: var(--color-white);
+
+        @include mobile{
+          font-size: var(--font-size-24);
+          line-height: var(--font-line-36);
+        }
       }
 
       &-arrows{
@@ -330,6 +348,10 @@
       padding: 0 16px;
     }
 
+    @include mobile{
+      margin: 70px auto 0;
+    }
+
 
     &-img{
       width: 100%;
@@ -362,6 +384,11 @@
         @include tablet{
           max-width: 100%;
         }
+
+        @include mobile{
+          font-size: var(--font-size-24);
+          line-height: var(--font-line-36);
+        }
       }
     }
   }
@@ -373,6 +400,10 @@
 
     @include tablet{
       padding: 0 16px;
+    }
+
+    @include mobile{
+      margin-top: 50px;
     }
 
     &-title-gray{
@@ -390,6 +421,11 @@
       line-height: var(--font-line-72);
       text-align: center;
       margin: 12px auto 0;
+
+      @include mobile{
+        font-size: var(--font-size-24);
+        line-height: var(--font-line-36);
+      }
     }
 
     &-content-items{
@@ -403,6 +439,7 @@
       }
 
       @include mobile {
+        margin-top: 25px;
         grid-template-columns: repeat(1, 1fr);
       }
 
@@ -462,6 +499,10 @@
     &-btn-wrapper{
       text-align: center;
       margin-top: 80px;
+
+      @include mobile{
+        margin-top: 25px;
+      }
 
       button{
         width: 219px;

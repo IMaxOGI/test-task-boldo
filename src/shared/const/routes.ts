@@ -4,4 +4,5 @@ export const routeLinks = {
   services: '/services',
   careers: '/careers',
   blog: '/blog',
+  about: '/about',
 };

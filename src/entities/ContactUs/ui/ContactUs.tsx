@@ -27,31 +27,38 @@ export const ContactUs: React.FC = () => {
   return (
     <div className={s.ContactUs}>
       <ToastContainer position={'bottom-center'} />
-      <h2>An enterprise template to ramp up your company website</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Controller
-          name="email"
-          control={control}
-          render={({ field: { onChange, onBlur, name, value }, fieldState: { error } }) => (
-            <Input
-              name={name}
-              value={value}
-              onChange={onChange}
-              onBlur={onBlur}
-              error={error}
-              placeholder="Your email address"
-              type="email"
-              autoComplete="email"
-            />
-          )}
-        />
-        <Button
-          type={'submit'}
-          variant={'filled-green'}
-        >
-          Start now
-        </Button>
-      </form>
+      <Ellipse
+        width={1300}
+        height={1300}
+        className={s.ContactUs__ellipse}
+      />
+      <div className={s.ContactUs__wrapper}>
+        <h2>An enterprise template to ramp up your company website</h2>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Controller
+            name="email"
+            control={control}
+            render={({ field: { onChange, onBlur, name, value }, fieldState: { error } }) => (
+              <Input
+                name={name}
+                value={value}
+                onChange={onChange}
+                onBlur={onBlur}
+                error={error}
+                placeholder="Your email address"
+                type="email"
+                autoComplete="email"
+              />
+            )}
+          />
+          <Button
+            type={'submit'}
+            variant={'filled-green'}
+          >
+            Start now
+          </Button>
+        </form>
+      </div>
     </div>
   );
 };

@@ -56,6 +56,11 @@
         gap: 70px;
       }
 
+      @include mobile{
+        flex-direction: column;
+        gap: 30px;
+      }
+
       &-list{
         display: flex;
         flex-direction: column;

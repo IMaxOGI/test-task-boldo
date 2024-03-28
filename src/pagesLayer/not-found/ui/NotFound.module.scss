@@ -1,0 +1,10 @@
+@import 'src/app/_styles/variables/breakpoints.scss';
+
+.NotFound {
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}

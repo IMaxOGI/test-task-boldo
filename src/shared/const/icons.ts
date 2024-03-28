@@ -6,4 +6,6 @@ export const IconName = {
   feather: 'feather',
   sun: 'sun',
   chevron: 'chevron',
+  menu: 'menu',
+  cross: 'cross',
 };

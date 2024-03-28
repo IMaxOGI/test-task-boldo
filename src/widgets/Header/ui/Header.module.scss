@@ -10,30 +10,27 @@
     padding: 56px 16px 64px 16px;
   }
 
-  &__ellipse{
+  &__ellipse {
     position: absolute;
     right: -490px;
     top: -85%;
     transform: rotate(350deg);
-    z-index: 1;
+    z-index: 0;
   }
 
-  &__up-section{
+  &__up-section {
     position: relative;
-    z-index: 2;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    &-logo{
+    &-logo {
       font-family: Manrope, sans-serif;
       font-size: var(--font-size-43);
       font-weight: var(--font-weight-700);
       color: var(--color-white);
-
-      display: flex;
-      align-items: center;
-      gap: 11px;
+      text-decoration: none;
     }
 
     &-navigation{
@@ -41,15 +38,26 @@
       align-items: center;
       gap: 40px;
 
+      @include tablet{
+        display: none;
+      }
+
       &-list{
         display: flex;
         align-items: center;
         gap: 40px;
 
         &-item{
-          font-size: var(--font-size-16);
-          font-weight: var(--font-weight-600);
-          color: var(--color-white);
+          a{
+            font-size: var(--font-size-16);
+            font-weight: var(--font-weight-600);
+            color: var(--color-white);
+
+            &:hover{
+              transition: var(--hover-duration);
+              opacity: 0.8;
+            }
+          }
 
           &-button{
             font-size: var(--font-size-16) !important;
@@ -61,12 +69,91 @@
         }
       }
     }
+
+    &-navigation-mobile {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      height: 100%;
+      width: 100%;
+      background: var(--color-dark-blue);
+      transition: right 0.3s ease-out;
+      display: flex;
+      flex-direction: column;
+      z-index: 10;
+
+      &.is-open {
+        right: 0;
+      }
+
+      &-list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+        margin-top: 90px;
+        margin-bottom: 40px;
+
+        &-item {
+          width: 100%;
+          border-bottom: 1px solid var(--color-white);
+
+          svg{
+            transform: rotate(270deg);
+          }
+
+          a{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: var(--font-size-16);
+            font-weight: var(--font-weight-600);
+            color: var(--color-white);
+            padding: 25px 16px;
+            text-transform: uppercase;
+
+            &:hover{
+              transition: var(--hover-duration);
+              opacity: 0.8;
+            }
+          }
+
+          &-button {
+            font-size: var(--font-size-16) !important;
+            font-weight: var(--font-weight-600) !important;
+            border-radius: var(--border-radius-30) !important;
+            line-height: inherit!important;
+            margin: 0 16px;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      &-cross{
+        position: absolute;
+        right: 30px;
+        top: 30px;
+      }
+    }
+
+    &-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--color-white);
+      font-size: var(--font-size-24);
+      cursor: pointer;
+      z-index: 4;
+
+      @include tablet{
+        display: block;
+      }
+    }
   }
 
   &__down-section{
     max-width: 1400px;
     position: relative;
-    z-index: 2;
     margin: 64px auto 0;
     display: flex;
     align-items: center;
@@ -84,6 +171,11 @@
       font-weight: var(--font-weight-400);
       line-height: var(--font-line-72);
       color: var(--color-white);
+
+      @include mobile{
+        font-size: var(--font-size-36);
+        line-height: var(--font-line-56);
+      }
     }
 
     p{
@@ -103,10 +195,22 @@
 
       &-button:first-child{
         width: 247px;
+
+        @include mobile{
+          width: 100%;
+        }
       }
 
       &-button:last-child{
         width: 187px;
+
+        @include mobile{
+          width: 100%;
+        }
+      }
+
+      @include mobile{
+        flex-direction: column;
       }
     }
 
@@ -120,6 +224,7 @@
   &__swiper{
     margin-top: 100px;
     position: relative;
+    z-index: 0!important;
     overflow: hidden;
 
     & > div:first-child {
@@ -129,5 +234,24 @@
     &-slide {
       max-width: max-content;
     }
+
+    @include mobile{
+      margin-top: 50px;
+    }
   }
+}
+
+.menu-enter {
+  opacity: 0;
+}
+.menu-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.menu-exit {
+  opacity: 1;
+}
+.menu-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
 }
