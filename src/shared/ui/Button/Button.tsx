@@ -12,7 +12,6 @@ export const Button: React.FC<ButtonPros> = (props) => {
   const { className, variant, children, ...restProps } = props;
   return (
     <button
-      type={'button'}
       className={cn(s.Button, s[`Button--${variant}`], className)}
       {...restProps}
     >

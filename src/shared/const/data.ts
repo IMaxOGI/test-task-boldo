@@ -109,4 +109,64 @@ export const articles = [
     avatar: images.avatar3,
     name: 'Monica Geller',
   },
+
+  {
+    id: 7,
+    img: images.image7,
+    category: 'Category',
+    date: 'November 22, 2021',
+    content: 'Pitch termsheet backing validation focus release.',
+    avatar: images.avatar,
+    name: 'Chandler Bing',
+  },
+
+  {
+    id: 8,
+    img: images.image8,
+    category: 'Category',
+    date: 'November 22, 2021',
+    content: 'Seed round direct mailing non-disclosure agreement graphical user interface rockstar.',
+    avatar: images.avatar2,
+    name: 'Rachel Green',
+  },
+
+  {
+    id: 9,
+    img: images.image9,
+    category: 'Category',
+    date: 'November 22, 2021',
+    content: 'Seed round direct mailing non-disclosure agreement graphical user interface rockstar.',
+    avatar: images.avatar3,
+    name: 'Monica Geller',
+  },
+
+  {
+    id: 10,
+    img: images.image7,
+    category: 'Category',
+    date: 'November 22, 2021',
+    content: 'Pitch termsheet backing validation focus release.',
+    avatar: images.avatar,
+    name: 'Chandler Bing',
+  },
+
+  {
+    id: 11,
+    img: images.image8,
+    category: 'Category',
+    date: 'November 22, 2021',
+    content: 'Seed round direct mailing non-disclosure agreement graphical user interface rockstar.',
+    avatar: images.avatar2,
+    name: 'Rachel Green',
+  },
+
+  {
+    id: 12,
+    img: images.image9,
+    category: 'Category',
+    date: 'November 22, 2021',
+    content: 'Seed round direct mailing non-disclosure agreement graphical user interface rockstar.',
+    avatar: images.avatar3,
+    name: 'Monica Geller',
+  },
 ];

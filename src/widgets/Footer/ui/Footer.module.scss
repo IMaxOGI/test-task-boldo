@@ -1,8 +1,14 @@
+@import "../../../app/_styles/variables/breakpoints.scss";
+
 .Footer{
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   padding: 100px;
+
+  @include tablet{
+    padding: 60px 16px;
+  }
 
   &__left-section{
     &-logo{

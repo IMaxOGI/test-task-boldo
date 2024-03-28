@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import s from './HomePage.module.scss';
 import 'swiper/swiper-bundle.css';
 import Image from 'next/image';
@@ -12,7 +12,21 @@ import { Navigation } from 'swiper/modules';
 import { articles, testimonials } from '@/shared/const/data';
 import { Accordion } from '@/shared/ui/Accordion';
 import { Button } from '@/shared/ui/Button';
+import { ContactUs } from '@/entities/ContactUs';
 export const HomePage: React.FC = () => {
+  const initialVisibleCount = 3;
+  const [visibleArticles, setVisibleArticles] = useState(initialVisibleCount);
+
+  const isAllArticlesVisible = visibleArticles >= articles.length;
+
+  const toggleArticlesVisibility = () => {
+    if (isAllArticlesVisible) {
+      setVisibleArticles(initialVisibleCount);
+    } else {
+      setVisibleArticles((prevVisibleArticles) => prevVisibleArticles + 3);
+    }
+  };
+
   return (
     <div className={s.HomePage}>
       <div className={s.HomePage__wrapper}>
@@ -240,8 +254,11 @@ export const HomePage: React.FC = () => {
         <p className={s['HomePage__our-blog-title-gray']}>Our Blog</p>
         <h2 className={s['HomePage__our-blog-title']}>Value proposition accelerator product management venture</h2>
         <div className={s['HomePage__our-blog-content-items']}>
-          {articles.map((article) => (
-            <div className={s['HomePage__our-blog-content-items-item']}>
+          {articles.slice(0, visibleArticles).map((article) => (
+            <div
+              key={article.id}
+              className={s['HomePage__our-blog-content-items-item']}
+            >
               <Image
                 src={article.img}
                 alt="blog img"
@@ -263,9 +280,15 @@ export const HomePage: React.FC = () => {
           ))}
         </div>
         <div className={s['HomePage__our-blog-btn-wrapper']}>
-          <Button variant={'outlined-blue'}>Load more</Button>
+          <Button
+            onClick={toggleArticlesVisibility}
+            variant={'outlined-blue'}
+          >
+            {isAllArticlesVisible ? 'Hide' : 'Load more'}
+          </Button>
         </div>
       </div>
+      <ContactUs />
     </div>
   );
 };
