@@ -1,4 +1,6 @@
 import { images } from '@/shared/const/images';
+import Boldo from '@/shared/assets/images/boldo.svg';
+import Presto from '@/shared/assets/images/presto.svg';
 
 export const testimonials = [
   {
@@ -169,4 +171,23 @@ export const articles = [
     avatar: images.avatar3,
     name: 'Monica Geller',
   },
+];
+
+export const logos = [
+  { id: 1, img: Boldo },
+  { id: 2, img: Presto },
+  { id: 3, img: Boldo },
+  { id: 4, img: Presto },
+  { id: 5, img: Boldo },
+  { id: 6, img: Presto },
+  { id: 7, img: Boldo },
+  { id: 8, img: Presto },
+  { id: 9, img: Boldo },
+  { id: 10, img: Presto },
+  { id: 11, img: Boldo },
+  { id: 12, img: Presto },
+  { id: 13, img: Boldo },
+  { id: 14, img: Presto },
+  { id: 15, img: Boldo },
+  { id: 16, img: Presto },
 ];

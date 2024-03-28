@@ -5,9 +5,14 @@
   align-items: baseline;
   justify-content: space-between;
   padding: 100px;
+  gap: 40px;
 
   @include tablet{
     padding: 60px 16px;
+  }
+
+  @include mobile{
+    flex-direction: column;
   }
 
   &__left-section{
@@ -44,7 +49,12 @@
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      gap: 100px;
+      gap: 140px;
+
+      @include tablet{
+        flex-wrap: wrap;
+        gap: 70px;
+      }
 
       &-list{
         display: flex;
@@ -52,9 +62,9 @@
         gap: 30px;
 
         li{
+          position: relative;
           display: flex;
           align-items: center;
-          gap: 12px;
 
           a{
             font-size: var(--font-size-20);
@@ -68,7 +78,9 @@
         }
 
         &-badge{
-          color: var(--color-dark-bluey);
+          position: absolute;
+          left: 80px;
+          color: var(--color-dark-blue);
           font-size: var(--font-size-13);
           font-weight: var(--font-weight-700);
 

@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import s from './Header.module.scss';
 import Link from 'next/link';
 import { routeLinks } from '@/shared/const/routes';
@@ -7,8 +9,19 @@ import { Button } from '@/shared/ui/Button';
 import Image from 'next/image';
 import Ellipse from '../../../shared/assets/images/ellipse.svg';
 import { images } from '@/shared/const/images';
+import { Autoplay } from 'swiper/modules';
+import { logos } from '@/shared/const/data';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const Header: React.FC = () => {
+  const [isSwiperReady, setIsSwiperReady] = useState(false);
+
+  useEffect(() => {
+    if (logos.length > 0) {
+      setIsSwiperReady(true);
+    }
+  }, []);
+
   return (
     <div className={s.Header}>
       <Ellipse
@@ -67,7 +80,33 @@ export const Header: React.FC = () => {
         />
       </div>
 
-      {/*/ Future slider */}
+      {isSwiperReady && (
+        <Swiper
+          className={s['Header__swiper']}
+          modules={[Autoplay]}
+          spaceBetween={80}
+          slidesPerView={'auto'}
+          centeredSlides={true}
+          effect={'fade'}
+          autoplay={{
+            delay: 0,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+          speed={2500}
+          allowTouchMove={false}
+          onInit={() => setIsSwiperReady(true)}
+        >
+          {logos.map((logo) => (
+            <SwiperSlide
+              key={logo.id}
+              className={s['Header__swiper-slide']}
+            >
+              {logo.img}
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </div>
   );
 };

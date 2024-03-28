@@ -15,20 +15,19 @@
   &__character-counter {
     flex-shrink: 0;
     font-size: var(--font-size-16);
-    color: var(--color-content-primary);
+    color: var(--color-black);
   }
 
   &__field-wrapper {
     position: relative;
-
-    border-bottom: 1px solid var(--color-black-separator);
-    line-height: var(--font-line);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-30);
 
     transition: var(--hover-duration);
     overflow: hidden;
 
     &:focus-within {
-      border-color: var(--linear-primary);
+      border-color: var(--color-black);
       transition: var(--hover-duration);
     }
 
@@ -38,7 +37,7 @@
       transition: var(--hover-duration);
 
       &:focus-within {
-        border-color: var(--color-gray);
+        border-color:var(--color-error);
         transition: var(--hover-duration);
       }
     }
@@ -58,7 +57,7 @@
     }
 
     &--error {
-      padding: 9px 52px 9px 16px;
+      padding: 12px 32px;
       color: var(--color-error);
       transition: var(--hover-duration);
     }
