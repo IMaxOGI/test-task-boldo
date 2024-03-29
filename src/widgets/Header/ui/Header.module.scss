@@ -1,13 +1,16 @@
 @import "../../../app/_styles/variables/breakpoints.scss";
 
 .Header {
-  padding: 56px 100px 64px 100px;
   background: var(--color-dark-blue);
   position: relative;
   overflow: hidden;
 
-  @include tablet{
-    padding: 56px 16px 64px 16px;
+  &__wrapper{
+    padding: 56px 100px 0 100px;
+
+    @include tablet{
+      padding: 56px 16px 0 16px;
+    }
   }
 
   &__ellipse {
@@ -16,6 +19,10 @@
     top: -85%;
     transform: rotate(350deg);
     z-index: 0;
+
+    @include mobile{
+      top: -100%;
+    }
   }
 
   &__up-section {
@@ -223,6 +230,7 @@
 
   &__swiper{
     margin-top: 100px;
+    margin-bottom: 50px;
     position: relative;
     z-index: 0!important;
     overflow: hidden;

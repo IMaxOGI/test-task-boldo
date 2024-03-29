@@ -150,6 +150,14 @@
           height: 55%;
           max-width: 291px;
           box-shadow: var(--box-shadow);
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+
+          @include mobile{
+            height: 50%;
+            width: 255px;
+            left: 45%;
+          }
         }
       }
 
@@ -250,6 +258,10 @@
 
     @include tablet{
       padding: 60px 16px;
+    }
+
+    @include mobile{
+      margin-top: 30px;
     }
 
     &-header{
@@ -539,6 +551,4 @@
       }
     }
   }
-
-
 }
