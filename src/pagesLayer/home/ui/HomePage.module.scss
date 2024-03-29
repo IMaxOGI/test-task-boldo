@@ -55,6 +55,10 @@
     &-item{
       max-width: 300px;
 
+      @include mobile{
+        max-width: 100%;
+      }
+
       img{
         width: 100%;
       }
