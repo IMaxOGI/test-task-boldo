@@ -34,7 +34,7 @@
 
 
     @include mobile{
-      font-size: var(--font-size-24);
+      font-size: var(--font-size-28);
       line-height: var(--font-line-36);
     }
   }
@@ -135,6 +135,24 @@
         }
       }
 
+      &-img-section{
+        position: relative;
+        min-height: 700px;
+
+        &-chart{
+          background: var(--color-white);
+          padding: 23px;
+          border-radius: var(--border-radius-12);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -15%);
+          height: 55%;
+          max-width: 291px;
+          box-shadow: var(--box-shadow);
+        }
+      }
+
       h2{
         max-width: 493px;
         font-family: Manrope, sans-serif;
@@ -145,7 +163,7 @@
         margin-bottom: 40px;
 
         @include mobile{
-          font-size: var(--font-size-24);
+          font-size: var(--font-size-28);
           line-height: var(--font-line-36);
           max-width: 100%;
         }
@@ -249,7 +267,7 @@
         color: var(--color-white);
 
         @include mobile{
-          font-size: var(--font-size-24);
+          font-size: var(--font-size-28);
           line-height: var(--font-line-36);
         }
       }
@@ -258,6 +276,10 @@
         display: flex;
         align-items: center;
         gap: 28px;
+
+        @include mobile{
+          gap: 15px;
+        }
 
         &-slider-arrow{
           background-color: var(--color-white);
@@ -268,6 +290,10 @@
             transition: var(--hover-duration);
             opacity: 0.8;
             cursor: pointer;
+          }
+
+          @include mobile{
+            padding: 10px;
           }
         }
 
@@ -386,7 +412,7 @@
         }
 
         @include mobile{
-          font-size: var(--font-size-24);
+          font-size: var(--font-size-28);
           line-height: var(--font-line-36);
         }
       }
@@ -423,7 +449,7 @@
       margin: 12px auto 0;
 
       @include mobile{
-        font-size: var(--font-size-24);
+        font-size: var(--font-size-28);
         line-height: var(--font-line-36);
       }
     }

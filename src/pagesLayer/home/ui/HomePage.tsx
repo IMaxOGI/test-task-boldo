@@ -13,9 +13,101 @@ import { articles, testimonials } from '@/shared/const/data';
 import { Accordion } from '@/shared/ui/Accordion';
 import { Button } from '@/shared/ui/Button';
 import { ContactUs } from '@/entities/ContactUs';
+import { DoughnutChart } from '@/shared/ui/DoughnutChart';
+import { SegmentDataMap } from '@/pagesLayer/home/types';
+import { ActiveElement, ChartEvent, ChartOptions } from 'chart.js';
+
+const segmentDataMap: SegmentDataMap = {
+  'Agile Development': [33, 34, 12],
+  'Investor Bandwidth': [28, 22, 25],
+  'A/B Testing': [15, 25, 35],
+};
+
+const initialData = {
+  labels: ['Agile Development', 'Investor Bandwidth', 'A/B Testing'],
+  datasets: [
+    {
+      label: '# of Votes',
+      data: [33, 34, 12],
+      backgroundColor: ['rgb(12, 187, 250)', 'rgb(104, 232, 166)', 'rgb(10, 38, 64)'],
+      borderColor: ['rgb(12, 187, 250)', 'rgb(104, 232, 166)', 'rgb(10, 38, 64)'],
+      borderWidth: 0,
+      cutout: '70%',
+    },
+  ],
+};
+
 export const HomePage: React.FC = () => {
   const initialVisibleCount = 3;
   const [visibleArticles, setVisibleArticles] = useState(initialVisibleCount);
+  const [chartData, setChartData] = useState(initialData);
+
+  const handleHover = (segmentName: keyof SegmentDataMap | null) => {
+    if (segmentName && chartData.datasets[0].data !== segmentDataMap[segmentName]) {
+      const newDataSet = {
+        ...initialData.datasets[0],
+        data: segmentDataMap[segmentName],
+      };
+      setChartData({
+        ...initialData,
+        datasets: [newDataSet],
+      });
+    } else if (!segmentName) {
+      setChartData(initialData);
+    }
+  };
+
+  const chartOptions: ChartOptions<'doughnut'> = {
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          boxWidth: 12,
+          padding: 30,
+          usePointStyle: true,
+          pointStyle: 'circle',
+          font: {
+            size: 14,
+          },
+          generateLabels: function (chart) {
+            const data = chart.data;
+            if (data.labels && data.datasets.length) {
+              const dataset = data.datasets[0];
+              const backgroundColors = dataset.backgroundColor as string[];
+              const dataValues = dataset.data as number[];
+              const total = dataValues.reduce((sum, value) => sum + value, 0);
+
+              return data.labels.map((label, i) => {
+                const value = dataValues[i];
+                const percentage = total > 0 ? ((value / total) * 100).toFixed(2) + '%' : '0%';
+                return {
+                  text: `${percentage} - ${label}`,
+                  fillStyle: backgroundColors[i],
+                };
+              });
+            }
+            return [];
+          },
+        },
+      },
+      tooltip: {
+        enabled: true,
+        callbacks: {
+          label: function () {},
+        },
+      },
+    },
+    onHover: (_: ChartEvent, elements: ActiveElement[]) => {
+      if (elements.length) {
+        const index = elements[0].index;
+        const segmentName = initialData.labels[index] as keyof SegmentDataMap;
+        handleHover(segmentName);
+      } else {
+        handleHover(null);
+      }
+    },
+  };
 
   const isAllArticlesVisible = visibleArticles >= articles.length;
 
@@ -117,28 +209,48 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className={s['HomePage__connect-customers-item']}>
-            <Image
-              src={images.image5}
-              alt="connect customers"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="img-fluid"
-            />
+            <div className={s['HomePage__connect-customers-item-img-section']}>
+              <Image
+                src={images.image5}
+                alt="connect customers"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="img-fluid"
+              />
+              <div className={s['HomePage__connect-customers-item-img-section-chart']}>
+                <DoughnutChart
+                  data={chartData}
+                  options={chartOptions}
+                />
+              </div>
+            </div>
             <div>
               <h2>We connect our customers with the best, and help them keep up-and stay open.</h2>
               <div className={s['HomePage__connect-customers-item-second-block']}>
-                <div className={s['HomePage__connect-customers-item-second-block-item']}>
+                <div
+                  className={s['HomePage__connect-customers-item-second-block-item']}
+                  onMouseEnter={() => handleHover('Agile Development')}
+                  onMouseLeave={() => handleHover(null)}
+                >
                   <p>
                     <Icon name={'feather'} /> We connect our customers with the best.
                   </p>
                 </div>
 
-                <div className={s['HomePage__connect-customers-item-second-block-item']}>
+                <div
+                  className={s['HomePage__connect-customers-item-second-block-item']}
+                  onMouseEnter={() => handleHover('Investor Bandwidth')}
+                  onMouseLeave={() => handleHover(null)}
+                >
                   <p>
                     <Icon name={'eye'} /> Advisor success customer launch party.
                   </p>
                 </div>
 
-                <div className={s['HomePage__connect-customers-item-second-block-item']}>
+                <div
+                  className={s['HomePage__connect-customers-item-second-block-item']}
+                  onMouseEnter={() => handleHover('A/B Testing')}
+                  onMouseLeave={() => handleHover(null)}
+                >
                   <p>
                     <Icon name={'sun'} /> Business-to-consumer long tail.
                   </p>
@@ -279,6 +391,7 @@ export const HomePage: React.FC = () => {
             </div>
           ))}
         </div>
+
         <div className={s['HomePage__our-blog-btn-wrapper']}>
           <Button
             onClick={toggleArticlesVisibility}
