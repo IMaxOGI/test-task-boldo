@@ -1,6 +1,6 @@
-@import "../../../app/_styles/variables/breakpoints.scss";
+@import '../../../app/_styles/variables/breakpoints.scss';
 
-.ContactUs{
+.ContactUs {
   position: relative;
   background-color: var(--color-dark-blue);
   border-radius: var(--border-radius-12);
@@ -8,15 +8,15 @@
   margin: 120px 100px;
   overflow: hidden;
 
-  @include tablet{
+  @include tablet {
     margin: 100px 16px;
   }
 
-  @include mobile{
+  @include mobile {
     padding: 20px;
   }
 
-  &__ellipse{
+  &__ellipse {
     position: absolute;
     right: -490px;
     top: -183%;
@@ -24,11 +24,11 @@
     z-index: 1;
   }
 
-  &__wrapper{
+  &__wrapper {
     position: relative;
     z-index: 2;
 
-    h2{
+    h2 {
       color: var(--color-white);
       font-size: var(--font-size-48);
       font-weight: var(--font-weight-400);
@@ -37,36 +37,36 @@
       text-align: center;
       max-width: 716px;
 
-      @include mobile{
+      @include mobile {
         font-size: var(--font-size-24);
         line-height: var(--font-line-36);
       }
     }
 
-    form{
+    form {
       display: flex;
       justify-content: center;
       gap: 24px;
       margin-top: 50px;
 
-      @include mobile{
+      @include mobile {
         flex-direction: column;
       }
 
-      input{
+      input {
         width: 370px;
         height: 56px;
 
-        @include mobile{
+        @include mobile {
           width: 100%;
         }
       }
 
-      button{
+      button {
         width: 210px;
         height: 56px;
 
-        @include mobile{
+        @include mobile {
           width: 100%;
         }
       }

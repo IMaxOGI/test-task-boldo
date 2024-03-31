@@ -1,28 +1,28 @@
-@import "../../../app/_styles/variables/breakpoints.scss";
+@import '../../../app/_styles/variables/breakpoints.scss';
 
-.HomePage{
+.HomePage {
   position: relative;
 
-  &__wrapper{
+  &__wrapper {
     padding: 82px 150px 0;
 
-    @include tablet{
+    @include tablet {
       padding: 82px 60px 0;
     }
 
-    @include tablet{
+    @include tablet {
       padding: 50px 16px 0;
     }
   }
 
-  &__our-services-text{
+  &__our-services-text {
     text-align: center;
     font-size: var(--font-size-20);
     font-weight: var(--font-weight-400);
     color: var(--color-gray);
   }
 
-  &__services-title{
+  &__services-title {
     max-width: 842px;
     margin: 20px auto 0;
     text-align: center;
@@ -32,14 +32,13 @@
     color: var(--color-black);
     line-height: var(--font-line-72);
 
-
-    @include mobile{
+    @include mobile {
       font-size: var(--font-size-28);
       line-height: var(--font-line-36);
     }
   }
 
-  &__services-list{
+  &__services-list {
     max-width: 1200px;
     margin: 80px auto 0;
     gap: 30px;
@@ -47,23 +46,23 @@
     align-items: center;
     justify-content: space-between;
 
-    @include mobile{
+    @include mobile {
       margin: 25px auto 0;
       flex-direction: column;
     }
 
-    &-item{
+    &-item {
       max-width: 300px;
 
-      @include mobile{
+      @include mobile {
         max-width: 100%;
       }
 
-      img{
+      img {
         width: 100%;
       }
 
-      h3{
+      h3 {
         margin-top: 24px;
         font-size: var(--font-size-24);
         font-weight: var(--font-weight-400);
@@ -71,13 +70,13 @@
         margin-bottom: 15px;
       }
 
-      p{
+      p {
         font-size: var(--font-size-20);
         font-weight: var(--font-weight-400);
         color: var(--color-gray);
       }
 
-      a{
+      a {
         margin-top: 28px;
         align-items: center;
         gap: 12px;
@@ -100,7 +99,7 @@
           opacity: 0.7;
         }
 
-        &:hover{
+        &:hover {
           transition: var(--hover-duration);
           opacity: 0.8;
         }
@@ -108,42 +107,42 @@
     }
   }
 
-  &__connect-customers{
+  &__connect-customers {
     max-width: 1200px;
     margin: 185px auto 0;
     display: flex;
     flex-direction: column;
     gap: 120px;
 
-    @include tablet{
+    @include tablet {
       margin: 70px auto 0;
       gap: 60px;
     }
 
-    &-item{
+    &-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 30px;
 
-      @include mobile{
-        flex-direction: column-reverse;;
+      @include mobile {
+        flex-direction: column-reverse;
       }
 
-      &:nth-of-type(2){
+      &:nth-of-type(2) {
         display: flex;
         flex-direction: row-reverse;
 
-        @include mobile{
+        @include mobile {
           flex-direction: column-reverse;
         }
       }
 
-      &-img-section{
+      &-img-section {
         position: relative;
         min-height: 700px;
 
-        &-chart{
+        &-chart {
           background: var(--color-white);
           padding: 23px;
           border-radius: var(--border-radius-12);
@@ -157,7 +156,7 @@
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
 
-          @include mobile{
+          @include mobile {
             height: 50%;
             width: 260px;
             left: 45%;
@@ -165,7 +164,7 @@
         }
       }
 
-      h2{
+      h2 {
         max-width: 493px;
         font-family: Manrope, sans-serif;
         font-size: var(--font-size-36);
@@ -174,25 +173,25 @@
         color: var(--color-black);
         margin-bottom: 40px;
 
-        @include mobile{
+        @include mobile {
           font-size: var(--font-size-28);
           line-height: var(--font-line-36);
           max-width: 100%;
         }
       }
 
-      &-content{
+      &-content {
         display: flex;
         flex-direction: column;
         gap: 24px;
         margin-bottom: 56px;
 
-        li{
+        li {
           display: flex;
           align-items: center;
           gap: 27px;
 
-          span{
+          span {
             background: var(--color-dark-blue);
             padding: 10px;
             border-radius: 50%;
@@ -201,7 +200,7 @@
             align-items: center;
             justify-content: center;
 
-            svg{
+            svg {
               height: 24px;
               width: 24px;
             }
@@ -209,26 +208,26 @@
         }
       }
 
-      &-button{
+      &-button {
         max-width: 210px;
 
-        @include mobile{
+        @include mobile {
           max-width: 100%;
         }
       }
 
-      &-second-block{
+      &-second-block {
         display: flex;
         flex-direction: column;
         gap: 24px;
 
-        &-item{
+        &-item {
           padding: 20px 16px;
           border-radius: var(--border-radius-4);
           background: var(--color-white);
           box-shadow: var(--box-shadow);
 
-          p{
+          p {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -246,7 +245,8 @@
               color: var(--color-white);
             }
 
-            svg, path {
+            svg,
+            path {
               stroke: var(--color-white);
             }
           }
@@ -255,30 +255,30 @@
     }
   }
 
-  &__testimonials{
+  &__testimonials {
     margin-top: 120px;
     padding: 100px;
     background: var(--color-dark-blue);
 
-    @include tablet{
+    @include tablet {
       padding: 60px 16px;
     }
 
-    @include mobile{
+    @include mobile {
       margin-top: 30px;
     }
 
-    &-header{
+    &-header {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
       margin-bottom: 56px;
 
-      @include mobile{
+      @include mobile {
         justify-content: space-between;
       }
 
-      &-title{
+      &-title {
         max-width: 716px;
         font-family: Manrope, sans-serif;
         font-size: var(--font-size-48);
@@ -286,38 +286,38 @@
         line-height: var(--font-line-72);
         color: var(--color-white);
 
-        @include mobile{
+        @include mobile {
           font-size: var(--font-size-28);
           line-height: var(--font-line-36);
         }
       }
 
-      &-arrows{
+      &-arrows {
         display: flex;
         align-items: center;
         gap: 28px;
 
-        @include mobile{
+        @include mobile {
           gap: 15px;
         }
 
-        &-slider-arrow{
+        &-slider-arrow {
           background-color: var(--color-white);
           padding: 18px;
           border-radius: 50%;
 
-          &:hover{
+          &:hover {
             transition: var(--hover-duration);
             opacity: 0.8;
             cursor: pointer;
           }
 
-          @include mobile{
+          @include mobile {
             padding: 10px;
           }
         }
 
-        &-slider-arrow-left{
+        &-slider-arrow-left {
           transform: rotate(180deg);
         }
 
@@ -327,16 +327,20 @@
           border: 1px solid var(--color-black-separator);
           opacity: 0.5;
 
-          svg, g, path {
+          svg,
+          g,
+          path {
             stroke: var(--color-dark-blue);
           }
 
-          &:hover{
+          &:hover {
             cursor: not-allowed;
             background: var(--color-white);
             opacity: 0.5;
 
-            svg, g, path {
+            svg,
+            g,
+            path {
               stroke: var(--color-dark-blue);
             }
           }
@@ -344,14 +348,14 @@
       }
     }
 
-    &-content{
-      &-item{
+    &-content {
+      &-item {
         padding: 40px;
         background-color: var(--color-white);
         border-radius: var(--border-radius-12);
         box-shadow: var(--box-shadow-secondary);
 
-        &-main-text{
+        &-main-text {
           color: var(--color-black);
           font-size: var(--font-size-24);
           font-weight: var(--font-weight-400);
@@ -359,23 +363,23 @@
           margin-bottom: 40px;
         }
 
-        &-footer{
+        &-footer {
           display: flex;
           align-items: center;
           gap: 24px;
 
-          &-text{
+          &-text {
             display: flex;
             flex-direction: column;
             gap: 6px;
 
-            &-name{
+            &-name {
               color: var(--color-dark-blue);
               font-size: var(--font-size-16);
               font-weight: var(--font-weight-700);
             }
 
-            &-role{
+            &-role {
               color: var(--color-dark-blue);
               font-size: var(--font-size-14);
               font-weight: var(--font-weight-400);
@@ -386,40 +390,39 @@
     }
   }
 
-  &__office-info{
+  &__office-info {
     margin: 124px auto 0;
     padding: 0 100px;
 
-    @include tablet{
+    @include tablet {
       padding: 0 16px;
     }
 
-    @include mobile{
+    @include mobile {
       margin: 70px auto 0;
     }
 
-
-    &-img{
+    &-img {
       width: 100%;
     }
 
-    &-content{
+    &-content {
       margin-top: 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 100px;
 
-      @include tablet{
+      @include tablet {
         gap: 20px;
         flex-direction: column;
       }
 
-      &-accordions{
+      &-accordions {
         width: 100%;
       }
 
-      &-title{
+      &-title {
         max-width: 500px;
         font-family: Manrope, sans-serif;
         font-size: var(--font-size-36);
@@ -427,11 +430,11 @@
         line-height: var(--font-line-56);
         color: var(--color-black);
 
-        @include tablet{
+        @include tablet {
           max-width: 100%;
         }
 
-        @include mobile{
+        @include mobile {
           font-size: var(--font-size-28);
           line-height: var(--font-line-36);
         }
@@ -439,27 +442,26 @@
     }
   }
 
-
-  &__our-blog{
+  &__our-blog {
     margin-top: 150px;
     padding: 0 150px;
 
-    @include tablet{
+    @include tablet {
       padding: 0 16px;
     }
 
-    @include mobile{
+    @include mobile {
       margin-top: 50px;
     }
 
-    &-title-gray{
+    &-title-gray {
       color: var(--color-gray);
       font-size: var(--font-size-20);
       font-weight: var(--font-weight-400);
       text-align: center;
     }
 
-    &-title{
+    &-title {
       max-width: 842px;
       color: var(--color-black);
       font-size: var(--font-size-48);
@@ -468,13 +470,13 @@
       text-align: center;
       margin: 12px auto 0;
 
-      @include mobile{
+      @include mobile {
         font-size: var(--font-size-28);
         line-height: var(--font-line-36);
       }
     }
 
-    &-content-items{
+    &-content-items {
       margin-top: 80px;
       display: grid;
       gap: 50px;
@@ -489,31 +491,31 @@
         grid-template-columns: repeat(1, 1fr);
       }
 
-      &-item{
-        &-img{
+      &-item {
+        &-img {
           width: 100%;
           margin-bottom: 24px;
         }
 
-        &-header{
+        &-header {
           display: flex;
           align-items: center;
           gap: 12px;
 
-          &-category{
+          &-category {
             color: var(--color-dark-blue);
             font-size: var(--font-size-16);
             font-weight: var(--font-weight-700);
           }
 
-          &-date{
+          &-date {
             color: var(--color-gray);
             font-size: var(--font-size-16);
             font-weight: var(--font-weight-400);
           }
         }
 
-        &-content{
+        &-content {
           margin-top: 12px;
           color: var(--color-black);
           font-size: var(--font-size-20);
@@ -522,18 +524,18 @@
           min-height: 100px;
         }
 
-        &-footer{
+        &-footer {
           display: flex;
           align-items: center;
           gap: 12px;
           margin-top: 20px;
 
-          img{
+          img {
             width: 32px;
             height: 32px;
           }
 
-          &-name{
+          &-name {
             color: var(--color-black);
             font-size: var(--font-size-16);
             font-weight: var(--font-weight-400);
@@ -542,18 +544,18 @@
       }
     }
 
-    &-btn-wrapper{
+    &-btn-wrapper {
       text-align: center;
       margin-top: 80px;
 
-      @include mobile{
+      @include mobile {
         margin-top: 25px;
       }
 
-      button{
+      button {
         width: 219px;
 
-        @include mobile{
+        @include mobile {
           width: 100%;
         }
       }

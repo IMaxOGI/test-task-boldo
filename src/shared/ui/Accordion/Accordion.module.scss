@@ -4,25 +4,33 @@
   &__contentEntering {
     opacity: 0;
     max-height: 0;
-    transition: opacity 300ms, max-height 300ms ease-in-out;
+    transition:
+      opacity 300ms,
+      max-height 300ms ease-in-out;
   }
 
   &__contentEntered {
     opacity: 1;
     max-height: 500px;
-    transition: opacity 300ms, max-height 300ms ease-in-out;
+    transition:
+      opacity 300ms,
+      max-height 300ms ease-in-out;
   }
 
   &__contentExiting {
     opacity: 1;
     max-height: 500px;
-    transition: opacity 300ms, max-height 300ms ease-in-out;
+    transition:
+      opacity 300ms,
+      max-height 300ms ease-in-out;
   }
 
   &__contentExited {
     opacity: 0;
     max-height: 0;
-    transition: opacity 300ms, max-height 300ms ease-in-out;
+    transition:
+      opacity 300ms,
+      max-height 300ms ease-in-out;
   }
 
   &__title {
